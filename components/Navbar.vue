@@ -20,7 +20,7 @@
 
             <template v-if="!$auth.loggedIn">
               <b-nav-item to="/login">Iniciar sesión</b-nav-item>
-              <b-nav-item href="">Crear cuenta</b-nav-item>
+              <b-nav-item href="" to="/register">Crear cuenta</b-nav-item>
             </template>
           </b-navbar-nav>
         </client-only>
