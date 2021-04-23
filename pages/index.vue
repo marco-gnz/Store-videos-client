@@ -1,14 +1,19 @@
 <template>
-  <div class="container">
-    <h1 class="title">
-        HOME
-    </h1>
+  <div>
+    <b-jumbotron fluid header="iVideo" lead="Sube tus videos, compartelos y descargalos!">
+      <b-button variant="primary">Comienza ahora</b-button>
+    </b-jumbotron>
+    <PlansList/>
   </div>
 </template>
 
 <script>
+import PlansList from '@/components/PlansList';
 export default {
-    middleware: 'auth'
+    middleware: 'auth',
+    components: {
+      PlansList
+    }
 }
 </script>
 
