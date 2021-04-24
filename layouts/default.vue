@@ -14,3 +14,7 @@ export default {
   }  
 }
 </script>
+
+<style src="../assets/styles/app.css"></style>
+
+

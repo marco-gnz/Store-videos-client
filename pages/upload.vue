@@ -1,7 +1,7 @@
 <template>
     <b-container class="mt-5">
         <div class="mb-4">
-            componente videos
+            <AppUploader />
         </div>
         <div class="mb-4">
             <h4>Tus videos</h4>
@@ -17,9 +17,11 @@
 <script>
 import { mapActions, mapGetters} from 'vuex';
 import AppFile from '@/components/Files/AppFile';
+import AppUploader from '@/components/Files/AppUploader';
 export default {
     components: {
-        AppFile
+        AppFile,
+        AppUploader
     },
     methods: {
         ...mapActions({
