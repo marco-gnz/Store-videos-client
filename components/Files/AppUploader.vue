@@ -17,6 +17,12 @@ export default {
         const pond = Filepond.create(this.$refs.file, {
             acceptedFileTypes: supportedFiles,
             allowRevert: false,
+            onprocessfile: (error, file) => {
+                if(error){
+                    return;
+                }
+                pond.removeFile(file);
+            },
             onaddfile: (error, file) => {
                 if(error){
                         return;
