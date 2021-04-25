@@ -6,7 +6,9 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="" to="/upload">Mis videos</b-nav-item>
+          <template v-if="$auth.loggedIn">
+            <b-nav-item href="" to="/upload">Mis videos</b-nav-item>
+          </template>
           <b-nav-item href="">Planes</b-nav-item>
         </b-navbar-nav>
         
