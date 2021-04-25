@@ -38,9 +38,9 @@ export default {
         async login(){
             try {
                 //petición para  obtener cookie de laravel sanctum
-                await this.$axios.$get("/sanctum/csrf-cookie");
+                // await this.$axios.$get("/sanctum/csrf-cookie");
                 
-                await this.$auth.loginWith("local", {
+                await this.$auth.loginWith("laravelSanctum", {
                     data: this.form
                 });
             

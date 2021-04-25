@@ -19,6 +19,7 @@ import { mapActions, mapGetters} from 'vuex';
 import AppFile from '@/components/Files/AppFile';
 import AppUploader from '@/components/Files/AppUploader';
 export default {
+    middleware: 'auth',
     components: {
         AppFile,
         AppUploader

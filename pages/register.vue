@@ -49,9 +49,9 @@ export default {
                 //iniciar sesion despues de crear el usuario
 
                 //petición para  obtener cookie de laravel sanctum
-                await this.$axios.$get("/sanctum/csrf-cookie");
+                // await this.$axios.$get("/sanctum/csrf-cookie");
                 
-                await this.$auth.loginWith("local", {
+                await this.$auth.loginWith("laravelSanctum", {
                     data: {
                         email: this.form.email,
                         password: this.form.password

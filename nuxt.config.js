@@ -38,27 +38,43 @@ export default {
     '@nuxtjs/auth-next'
   ],
 
+
+  //para comentar: cmd+k+c, descomentar: cmd+k+u
+  // auth: {
+  //   strategies: {
+  //     local: {
+  //       token: {
+  //         // property: 'token',
+  //           required: false,
+  //           type: false
+  //       },
+  //       user: {
+  //         //como se recive el objeto user
+  //         property: false,
+  //         // autoFetch: true
+  //       },
+  //       endpoints: {
+  //         login: { url: '/api/login', method: 'post', propertyName: false },
+  //         logout: { url: '/api/logout', method: 'post' },
+  //         user: { url: '/api/user', method: 'get' }
+  //       }
+  //     }
+  //   },
+  //   localStorage: false
+  // },
+
   auth: {
     strategies: {
-      local: {
-        token: {
-          // property: 'token',
-            required: false,
-            type: false
-        },
-        user: {
-          //como se recive el objeto user
-          property: false,
-          // autoFetch: true
-        },
+      'laravelSanctum': {
+        provider: 'laravel/sanctum',
+        url: 'http://ivideo.local:8000',
         endpoints: {
-          login: { url: '/api/login', method: 'post', propertyName: false },
+          login: { url: '/api/login', method: 'post' },
           logout: { url: '/api/logout', method: 'post' },
           user: { url: '/api/user', method: 'get' }
         }
-      }
-    },
-    localStorage: false
+      },
+    }
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
