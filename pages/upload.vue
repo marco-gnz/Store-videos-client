@@ -1,7 +1,7 @@
 <template>
     <b-container class="mt-5">
         <div class="mb-4">
-            <AppUploader />
+            <AppUploader @onprocessfile="storeFile" />
         </div>
         <div class="mb-4">
             <h4>Tus videos</h4>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters} from 'vuex';
+import { mapActions, mapGetters, mapMutations} from 'vuex';
 import AppFile from '@/components/Files/AppFile';
 import AppUploader from '@/components/Files/AppUploader';
 export default {
@@ -27,7 +27,22 @@ export default {
     methods: {
         ...mapActions({
             getFiles: 'files/getFiles'
-        })
+        }),
+
+        ...mapMutations({
+            addFile: 'files/ADD_FILE'
+        }),
+
+        async storeFile(file){
+            const response = await this.$axios.$post("api/files", {
+                name: file.filename,
+                size: file.fileSize,
+                path: file.serverId
+            });
+        
+            this.addFile(response.data);
+            
+        }
     },
     computed: {
         ...mapGetters({

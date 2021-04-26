@@ -22,6 +22,9 @@ export default {
                     return;
                 }
                 pond.removeFile(file);
+
+                //una vez subido el archivo a s3, le pasamos el archivo al componente padre(upload.vue)
+                this.$emit("onprocessfile", file);
             },
             onaddfile: (error, file) => {
                 if(error){
