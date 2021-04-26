@@ -3,7 +3,7 @@ export default {
   head: {
     title: 'ivideo',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'es'
     },
     meta: [
       { charset: 'utf-8' },
@@ -34,11 +34,54 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/auth-next'
   ],
 
+
+  //para comentar: cmd+k+c, descomentar: cmd+k+u
+  // auth: {
+  //   strategies: {
+  //     local: {
+  //       token: {
+  //         // property: 'token',
+  //           required: false,
+  //           type: false
+  //       },
+  //       user: {
+  //         //como se recive el objeto user
+  //         property: false,
+  //         // autoFetch: true
+  //       },
+  //       endpoints: {
+  //         login: { url: '/api/login', method: 'post', propertyName: false },
+  //         logout: { url: '/api/logout', method: 'post' },
+  //         user: { url: '/api/user', method: 'get' }
+  //       }
+  //     }
+  //   },
+  //   localStorage: false
+  // },
+
+  auth: {
+    strategies: {
+      'laravelSanctum': {
+        provider: 'laravel/sanctum',
+        url: 'http://ivideo.local:8000',
+        endpoints: {
+          login: { url: '/api/login', method: 'post' },
+          logout: { url: '/api/logout', method: 'post' },
+          user: { url: '/api/user', method: 'get' }
+        }
+      },
+    }
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    credentials: true,
+    baseURL: 'http://ivideo.local:8000'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
