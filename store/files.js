@@ -12,7 +12,11 @@ export const mutations = {
     },
 
     ADD_FILE(state, file){
-        state.files = [file, ...state.files]
+        state.files = [file, ...state.files];
+    },
+
+    REMOVE_FILE(state, uuid){
+        state.files = state.files.filter(file => file.uuid !== uuid);
     }
 };
 
@@ -30,6 +34,12 @@ export const actions = {
         const response = await this.$axios.$get('/api/files');
 
         commit('SET_FILES', response.data);
+    },
+
+    async deleteFile({ commit}, uuid) {
+        await this.$axios.$delete(`/api/file/${uuid}`);
+
+        commit('REMOVE_FILE', uuid);
     }
 
 };
